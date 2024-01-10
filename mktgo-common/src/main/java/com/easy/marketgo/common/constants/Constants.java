@@ -26,8 +26,10 @@ public class Constants {
     public static final int WECOM_MASS_TASK_SINGLE_MAX_SIZE_EXTERNAL_USER = 10000;
 
     public final String AGENT_KEY_FOR_CONTACTS = "contacts";
+    //public final String AGENT_KEY_FOR_CONTACTS = "1000012";
 
-    public final String AGENT_KEY_FOR_EXTERNALUSER = "externaluser";
+   // public final String AGENT_KEY_FOR_EXTERNALUSER = "externaluser";
+    public final String AGENT_KEY_FOR_EXTERNALUSER = "1000012";
 
 
     public final String WECOM_CALLBACK_CONSTACTS = "/mktgo/api/wecom/callback/contacts?corp_id=";

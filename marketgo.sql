@@ -13,7 +13,7 @@
 
  Date: 06/12/2022 12:00:50
 */
-CREATE DATABASE IF NOT EXISTS marketgo DEFAULT CHARSET utf8mb4 COLLATE utf8mb4_general_ci;
+CREATE DATABASE IF NOT EXISTS marketgo DEFAULT CHARSET utf8 COLLATE utf8_general_ci;
 
 use marketgo;
 
@@ -481,7 +481,7 @@ CREATE TABLE `wecom_sys_base_role` (
    `uuid`  VARCHAR(64)  NOT NULL COMMENT '业务主键',
     `code` varchar(32) DEFAULT NULL COMMENT '角色编码',
     `desc` varchar(255) DEFAULT NULL COMMENT '角色描述',
-    `corp_id`   VARCHAR(128) default NULL COMMENT '企微CORP ID',
+    `corp_id`   VARCHAR(128) NOT NULL COMMENT '企微CORP ID',
     `project_uuid` varchar(64) DEFAULT NULL,
     `create_time` timestamp(3) NOT NULL DEFAULT current_timestamp(3) COMMENT '创建时间',
     `update_time` timestamp(3) NOT NULL DEFAULT current_timestamp(3) ON UPDATE current_timestamp(3) COMMENT '更新时间',
@@ -674,7 +674,7 @@ UPDATE wecom_sys_user SET auth_status=1;
 
 
 ALTER TABLE tenant_config ADD server_address varchar(1024) DEFAULT NULL COMMENT '服务器地址信息';
-UPDATE tenant_config SET server_address='http://crm.keeptops.cn';
+UPDATE tenant_config SET server_address='http://domain.com';
 
 
 -- version 0.0.3

@@ -46,7 +46,7 @@ public interface WeComEventExternalUserRepository extends CrudRepository<WeComEv
                                                 @Param("member_id") String memberId,
                                                 @Param("external_user_id") String externalUserId);
 
-    @Query("SELECT * FROM wecom_event_external_user WHERE corp_id = :corp_id group by event_time DESC LIMIT 1")
+    @Query("SELECT * FROM wecom_event_external_user WHERE corp_id = :corp_id group by event_time order by id  DESC LIMIT 1")
     WeComEventExternalUserEntity queryByCorpId(@Param("corp_id") String corpId);
 
     @Query("SELECT * FROM wecom_relation_member_external_user WHERE corp_id = :corp_id AND" +

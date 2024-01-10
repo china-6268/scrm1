@@ -13,7 +13,7 @@ public class AesException extends Exception {
   public static final int DECRYPT_AES_ERROR = -40007;
   public static final int ILLEGAL_BUFFER = -40008;
 
-    private final int code;
+  private final int code;
 
   private static String getMessage(int code) {
     switch (code) {

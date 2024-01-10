@@ -9,10 +9,8 @@ import lombok.extern.log4j.Log4j2;
 import lombok.var;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
-import com.easy.marketgo.react.service.callback.auth.WXBizMsgCrypt;
 
 /**
  * @author ssk
@@ -28,16 +26,6 @@ public class WeComCallBackController extends BaseController {
     @Autowired
     private CallbackForwardService callbackForwardService;
 
-    @Value("${wechat.token}")
-    private String corpToken = "";
-
-    @Value("${wechat.aesKey}")
-    private String aesKey = "";
-
-    @Value("${wechat.aesKey}")
-    private String corpId = "";
-
-
     @RequestMapping(produces = "text/plain;charset=utf-8", value = "/verify/{corpId}")
     @ResponseBody
     public String cropVerify(
@@ -47,15 +35,17 @@ public class WeComCallBackController extends BaseController {
             @RequestParam(name = "nonce", required = false) String nonce,
             @RequestParam(name = "echostr", required = false) String echostr) throws Exception {
 
-        String requestUri = getRequest().getRequestURI();
+        var requestUri = getRequest().getRequestURI();
         log.info("prefix=请求URL地址信息为|msg={}|", requestUri);
 
-        log.info("prefix=微信服务器响应信息为|nonce={}|timestamp={}|msg_signature={}|echostr={}|", nonce, timestamp, signature, echostr);
+        log.info("prefix=微信服务器响应信息为|nonce={}|timestamp={}|msg_signature={}|echostr={}|", nonce, timestamp, signature,
+                echostr);
 
-        WXBizMsgCrypt wxcpt = new WXBizMsgCrypt(corpToken, aesKey, corpId);
-        String sEchoStr = wxcpt.verifyURL(signature, timestamp, nonce, echostr);
-        log.info("verifyurl echostr: " + sEchoStr);
-        return sEchoStr;
+//        var wxcpt = new WXCropBizMsgCrypt(properties.getCropToken(), properties.getCropAesKey(), properties
+//        .getCorpId());
+//        var sEchoStr = wxcpt.VerifyURL(signature, timestamp, nonce, echostr);
+//        log.info("verifyurl echostr: " + sEchoStr);
+        return "sEchoStr";
     }
 
 

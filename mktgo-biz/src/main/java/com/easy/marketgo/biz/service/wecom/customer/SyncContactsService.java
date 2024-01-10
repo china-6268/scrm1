@@ -34,7 +34,8 @@ import javax.annotation.Resource;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.*;
-import java.util.stream.Collector
+import java.util.stream.Collectors;
+
 import static com.google.common.util.concurrent.MoreExecutors.getExitingExecutorService;
 
 /**
@@ -72,7 +73,7 @@ public class SyncContactsService {
     private static final Integer CAPACITY_ONE = 100;
     private static final Integer CORE_THREAD_NUM = 10;
 
-    private final String AGENT_ID = "externaluser";
+    private final String AGENT_ID = "1000012";
 
     @PostConstruct
     public void init() {
